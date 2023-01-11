@@ -23,11 +23,10 @@ class Profile(models.Model):
     user = models.OneToOneField(to=User,on_delete=models.CASCADE)
     phone_number = models.BigIntegerField(blank=True,null=True,unique=True)
     country =models.ForeignKey(to=Country,on_delete=models.CASCADE)
-    avatar = models.ImageField(blank=True)
+    avatar = models.ImageField(blank=True, upload_to='profile_avatars/')
 
     def __str__(self):
-        return self.user
-
+        return f'{self.user} - {self.phone_number}'
 
 class Device(models.Model):
     DEVICE_WEB = 1
