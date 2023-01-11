@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'social_network.urls'
+ROOT_URLCONF = 'sosial_network.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'social_network.wsgi.application'
+WSGI_APPLICATION = 'sosial_network.wsgi.application'
 
 
 # Database
@@ -128,7 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = f'{BASE_URL}media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
