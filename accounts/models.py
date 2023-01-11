@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-
+from django.contrib.auth.models import User
 
 class Country(models.Model):
     name = models.CharField(max_length=50)
@@ -15,13 +15,18 @@ class Country(models.Model):
         verbose_name_plural = 'countries'
         db_table = 'countries'
     
+    def __str__(self):
+        return self.abbr
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    user = models.OneToOneField(to=User,on_delete=models.CASCADE)
     phone_number = models.BigIntegerField(blank=True,null=True,unique=True)
     country =models.ForeignKey(to=Country,on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True)
+
+    def __str__(self):
+        return self.user
 
 
 class Device(models.Model):
@@ -46,4 +51,5 @@ class Device(models.Model):
 
 
 
-
+    def __str__(self):
+        return self.device_uuid
