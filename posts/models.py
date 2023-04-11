@@ -5,7 +5,7 @@ from django.conf import settings
 class Post(models.Model):
     user = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    caption = models.TextField(max_length=2080)
+    caption = models.TextField(max_length=2000)
     is_active = models.BooleanField(default=True)
     is_public = models.BooleanField(default=True)
     created_time = models.DateTimeField(auto_now_add=True)
